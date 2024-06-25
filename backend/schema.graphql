@@ -1,0 +1,55 @@
+type Mutation {
+  createCar(input: CreateCarInput!): Car!
+  updateCar(id: ID!, input: UpdateCarInput!): Car!
+  deleteCar(id: ID!): Car
+}
+
+input CreateCarInput {
+  model: String!
+  year: Int!
+  price: Float!
+  description: String
+  companyId: ID!
+  createdAt: String
+}
+
+input UpdateCarInput {
+  model: String
+  year: Int
+  price: Float
+  description: String
+  companyId: ID
+  createdAt: String
+}
+
+type Query {
+  cars: [Car]
+  car(id: ID!): Car
+  carSupplierCompanyInfo(car_id: ID!): CarSupplierCompanyInfo
+}
+
+type Company {
+  id: ID!
+  name: String!
+  description: String
+}
+
+"""
+Represents a car being sold by dealers
+"""
+type Car {
+  id: ID!
+  model: String
+  year: Int
+  price: Float
+  description: String
+  createdAt: String
+  company: Company
+}
+
+type CarSupplierCompanyInfo {
+  id: ID!
+  car: Car
+  availability: Boolean
+  quantity: Int
+}
