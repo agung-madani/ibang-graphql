@@ -1,7 +1,7 @@
 import HomePage from "./pages/HomePage";
 import CarPage from "./pages/CarPage";
 import LoginPage from "./pages/LoginPage";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Protected from "./components/protected";
 
 function App() {
